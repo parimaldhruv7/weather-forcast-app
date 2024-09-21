@@ -1,38 +1,81 @@
 .App {
   text-align: center;
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.weather-display, .five-day-forecast {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.city-search {
+  position: relative;
+  margin-bottom: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.city-search input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdown div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown div:hover {
+  background-color: #f0f0f0;
+}
+
+.forecast-cards {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.forecast-card {
+  flex: 1;
+  min-width: 120px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.unit-toggle {
+  margin-bottom: 20px;
+}
+
+.unit-toggle button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.unit-toggle button.active {
+  background-color: #007bff;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.error {
+  color: red;
+  margin-top: 20px;
 }

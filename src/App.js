@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import WeatherDisplay from './components/WeatherDisplay';
+import CitySearch from './components/CitySearch';
+import FiveDayForcast from './components/FiveDayForcast';
+import UnitToggle from './components/UnitToggle';
 import './App.css';
 
 function App() {
+  const [selectedCity, setSelectedCity] = useState('New York');
+  const [tempUnit, setTempUnit] = useState('celsius');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Weather Forcast App</h1>
+      <CitySearch onCitySelect={setSelectedCity} />
+      <UnitToggle currentUnit={tempUnit} onUnitChange={setTempUnit} />
+      <WeatherDisplay city={selectedCity} unit={tempUnit} />
+      <FiveDayForcast city={selectedCity} unit={tempUnit} />
     </div>
   );
 }
